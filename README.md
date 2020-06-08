@@ -7,3 +7,30 @@
 
 ## 온라인 코드 리뷰 과정
 * [텍스트와 이미지로 살펴보는 온라인 코드 리뷰 과정](https://github.com/next-step/nextstep-docs/tree/master/codereview)
+
+## 요구 사항
+
+1. 자동차 대 수와 레이서 이름, 횟수를 입력 받아 승자를 가려 내는 초간단 게임
+2. 횟수 마다 자동차는 각각 랜덤으로 앞으로 전진 가능 (40%확률)
+
+### 객체
+
+- Car
+  - public new
+  - default new(int canGoPercent)
+  - boolean move
+
+- Racer
+  - String racerName
+
+- Player
+  - 멤버변수
+    - Racer
+    - Car
+  - move
+  - distance
+
+- RacingGame
+  - public new(Player... players)
+  - round(int move)
+  - Player winner
