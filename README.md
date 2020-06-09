@@ -27,9 +27,13 @@
   - 멤버변수
     - Racer
     - Car
-  - nextDistance(int currentDistance)
+  - int nextDistance(int currentDistance)
 
 - RacingGame
   - public new(Player... players)
-  - round(int move)
+  - RoundResult round(int move)
   - Player winner
+
+- RoundResult
+  - public new(Racer,int)
+  - public Map<String,int> currentDistances()
