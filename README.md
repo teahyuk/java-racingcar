@@ -27,8 +27,7 @@
   - 멤버변수
     - Racer
     - Car
-  - move
-  - distance
+  - nextDistance(int currentDistance)
 
 - RacingGame
   - public new(Player... players)
