@@ -25,7 +25,7 @@ class PlayerTest {
     void move(int canGoPercent, int currentDistance, int expectedFirstDistance) {
         Player player = new Player("racer", canGoPercent);
 
-        assertThat(player.nextRound(currentDistance))
-                .isEqualTo(expectedFirstDistance);
+        assertThat(player.nextRound(Distance.of(currentDistance)))
+                .isEqualTo(Distance.of(expectedFirstDistance));
     }
 }
