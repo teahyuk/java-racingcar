@@ -17,7 +17,7 @@ class CarTest {
     @CsvSource(value = {"100,true", "0,false"})
     void moveTest(int canMovePercent, boolean isMoved) {
         Car car = new Car(canMovePercent);
-        assertThat(car.move())
+        assertThat(car.movable())
                 .isEqualTo(isMoved);
     }
 

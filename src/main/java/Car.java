@@ -15,7 +15,7 @@ public class Car {
         this.random = new Random();
     }
 
-    public boolean move() {
+    public boolean movable() {
         return random.nextInt(100) < canMoveRate;
     }
 }

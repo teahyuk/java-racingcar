@@ -16,6 +16,6 @@ public class Player {
     }
 
     public Distance nextRound(Distance currentDistance) {
-        return car.move() ? currentDistance.add() : currentDistance;
+        return car.movable() ? currentDistance.add() : currentDistance;
     }
 }
