@@ -22,18 +22,24 @@
 
 - Racer
   - String racerName
+  
+- Distance
+  - int distance()
+  - int add()
 
 - Player
-  - 멤버변수
+  - 멤버 변수
     - Racer
     - Car
-  - int nextDistance(int currentDistance)
+  - int nextDistance(Distance currentDistance)
 
-- RacingGame
+- GameManager
   - public new(Player... players)
-  - RoundResult round(int move)
+  - RoundResult round()
   - Player winner
 
 - RoundResult
-  - public new(Racer,int)
-  - public Map<String,int> currentDistances()
+  - public new(Racer... racers)
+  - public List<Racer> getRacers()
+  - public Distance getDistance(Racer racer)
+  - void setDistance(Racer racer, Distance distance);
