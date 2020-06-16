@@ -35,10 +35,10 @@
 
 - GameManager
   - public new(Player... players)
-  - RoundResult round()
+  - RoundStatus round()
   - Player winner
 
-- RoundResult
+- RoundStatus
   - public new(Map<Racer, Distance> racerMap)
   - public List<Racer> getRacers()
   - public Distance getDistance(Racer racer)

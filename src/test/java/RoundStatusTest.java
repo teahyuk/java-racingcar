@@ -9,14 +9,14 @@ import java.util.stream.Stream;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 
-class RoundResultTest {
+class RoundStatusTest {
 
     private static final Racer racer1 = new Racer("racer1");
     private static final Racer racer2 = new Racer("racer2");
 
     @Test
     void roundResult() {
-        assertThatCode(() -> new RoundResult(new HashMap<>()))
+        assertThatCode(() -> new RoundStatus(new HashMap<>()))
                 .doesNotThrowAnyException();
     }
 
@@ -24,8 +24,8 @@ class RoundResultTest {
     void getRacers() {
         Map<Racer, Distance> racerMap = Stream.of(racer1,racer2)
                 .collect(Collectors.toMap(Function.identity(), racer -> Distance.of()));
-        RoundResult roundResult = new RoundResult(racerMap);
-        assertThat(roundResult.getRacers())
+        RoundStatus roundStatus = new RoundStatus(racerMap);
+        assertThat(roundStatus.getRacers())
                 .containsAll(racerMap.keySet());
     }
 
@@ -37,10 +37,10 @@ class RoundResultTest {
         racerMap.put(racer1,racer1Distance);
         racerMap.put(racer2,racer2Distance);
 
-        RoundResult roundResult = new RoundResult(racerMap);
-        assertThat(roundResult.distance(racer1))
+        RoundStatus roundStatus = new RoundStatus(racerMap);
+        assertThat(roundStatus.distance(racer1))
                 .isEqualTo(racer1Distance);
-        assertThat(roundResult.distance(racer2))
+        assertThat(roundStatus.distance(racer2))
                 .isEqualTo(racer2Distance);
     }
 
