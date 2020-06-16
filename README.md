@@ -36,7 +36,8 @@
 
 - GameManager
   - public new(Player... players)
-  - RoundStatus round()
+  - RoundStatus firstRound()
+  - RoundStatus nextRound(RoundStatus currentRound)
   - Player winner
 
 - RoundStatus
