@@ -32,6 +32,7 @@
     - Racer
     - Car
   - int nextDistance(Distance currentDistance)
+  - Racer getRacer()
 
 - GameManager
   - public new(Player... players)
