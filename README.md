@@ -39,7 +39,6 @@
   - Player winner
 
 - RoundResult
-  - public new(Racer... racers)
+  - public new(Map<Racer, Distance> racerMap)
   - public List<Racer> getRacers()
   - public Distance getDistance(Racer racer)
-  - void setDistance(Racer racer, Distance distance);
