@@ -35,10 +35,9 @@
   - Racer getRacer()
 
 - GameManager
-  - public new(Player... players)
-  - RoundStatus firstRound()
-  - RoundStatus nextRound(RoundStatus currentRound)
-  - Player winner
+  - public new(int roundCount, List<Players> players)
+  - Collection<RoundStatus> play()
+  - Player winner(RoundStatus lastStatus)
 
 - RoundStatus
   - public new(Map<Racer, Distance> racerMap)

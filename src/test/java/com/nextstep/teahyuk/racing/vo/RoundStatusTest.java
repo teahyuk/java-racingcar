@@ -1,7 +1,5 @@
-package com.nextstep.teahyuk.racing;
+package com.nextstep.teahyuk.racing.vo;
 
-import com.nextstep.teahyuk.racing.vo.Distance;
-import com.nextstep.teahyuk.racing.vo.Racer;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -26,7 +24,7 @@ class RoundStatusTest {
 
     @Test
     void getRacers() {
-        Map<Racer, Distance> racerMap = Stream.of(racer1,racer2)
+        Map<Racer, Distance> racerMap = Stream.of(racer1, racer2)
                 .collect(Collectors.toMap(Function.identity(), racer -> Distance.of()));
         RoundStatus roundStatus = new RoundStatus(racerMap);
         assertThat(roundStatus.getRacers())
@@ -34,12 +32,12 @@ class RoundStatusTest {
     }
 
     @Test
-    void distance(){
+    void distance() {
         Map<Racer, Distance> racerMap = new HashMap<>();
         Distance racer1Distance = Distance.of(1);
         Distance racer2Distance = Distance.of(2);
-        racerMap.put(racer1,racer1Distance);
-        racerMap.put(racer2,racer2Distance);
+        racerMap.put(racer1, racer1Distance);
+        racerMap.put(racer2, racer2Distance);
 
         RoundStatus roundStatus = new RoundStatus(racerMap);
         assertThat(roundStatus.distance(racer1))

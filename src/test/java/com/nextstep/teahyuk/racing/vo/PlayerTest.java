@@ -1,8 +1,5 @@
 package com.nextstep.teahyuk.racing.vo;
 
-import com.nextstep.teahyuk.racing.vo.Distance;
-import com.nextstep.teahyuk.racing.vo.Player;
-import com.nextstep.teahyuk.racing.vo.Racer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -10,7 +7,11 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 
-class PlayerTest {
+public class PlayerTest {
+
+    public static Player player1 = new Player("racer1", 100);
+    public static Player player2 = new Player("racer2", 100);
+    public static Player stopPlayer = new Player("stopper", 0);
 
     @Test
     void constructor() {

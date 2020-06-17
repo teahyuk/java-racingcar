@@ -1,15 +1,10 @@
-package com.nextstep.teahyuk.racing;
+package com.nextstep.teahyuk.racing.vo;
 
-import com.nextstep.teahyuk.racing.vo.Distance;
-import com.nextstep.teahyuk.racing.vo.Racer;
-
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class RoundStatus {
     private final Map<Racer, Distance> racerDistanceMap;
+    private final int s = 4;
 
     public RoundStatus(Map<Racer, Distance> racerDistanceHashMap) {
         this.racerDistanceMap = new HashMap<>(racerDistanceHashMap);
@@ -28,11 +23,16 @@ public class RoundStatus {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         RoundStatus that = (RoundStatus) o;
-        return Objects.equals(racerDistanceMap, that.racerDistanceMap);
+        return Objects.equals(racerDistanceMap, that.racerDistanceMap) &&
+                racerDistanceMap.keySet().stream().allMatch(racer -> that.valueEquals(racer, racerDistanceMap.get(racer)));
+    }
+
+    private boolean valueEquals(Racer racer, Distance expectDistance) {
+        return racerDistanceMap.get(racer).equals(expectDistance);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(racerDistanceMap);
+        return Objects.hash(racerDistanceMap, Arrays.deepHashCode(racerDistanceMap.values().toArray()));
     }
 }

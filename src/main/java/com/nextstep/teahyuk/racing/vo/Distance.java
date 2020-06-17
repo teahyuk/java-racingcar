@@ -21,7 +21,7 @@ public class Distance {
         return cacheMap.get(0);
     }
 
-    static Distance of(int distance){
+    public static Distance of(int distance){
         return cacheMap.putIfAbsent(distance, new Distance(distance));
     }
 
@@ -44,5 +44,12 @@ public class Distance {
     @Override
     public int hashCode() {
         return Objects.hash(distance);
+    }
+
+    @Override
+    public String toString() {
+        return "Distance{" +
+                "distance=" + distance +
+                '}';
     }
 }
