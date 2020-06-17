@@ -1,4 +1,4 @@
-package com.nextstep.teahyuk.racing;
+package com.nextstep.teahyuk.racing.vo;
 
 import java.util.Map;
 import java.util.Objects;

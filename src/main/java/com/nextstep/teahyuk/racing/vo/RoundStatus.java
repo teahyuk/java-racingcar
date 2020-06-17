@@ -1,5 +1,8 @@
 package com.nextstep.teahyuk.racing;
 
+import com.nextstep.teahyuk.racing.vo.Distance;
+import com.nextstep.teahyuk.racing.vo.Racer;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +15,7 @@ public class RoundStatus {
         this.racerDistanceMap = new HashMap<>(racerDistanceHashMap);
     }
 
-    public Iterable<Racer> getRacers() {
+    public Collection<Racer> getRacers() {
         return racerDistanceMap.keySet();
     }
 

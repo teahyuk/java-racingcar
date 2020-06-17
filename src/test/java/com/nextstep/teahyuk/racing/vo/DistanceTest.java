@@ -1,4 +1,6 @@
-import com.nextstep.teahyuk.racing.Distance;
+package com.nextstep.teahyuk.racing.vo;
+
+import com.nextstep.teahyuk.racing.vo.Distance;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

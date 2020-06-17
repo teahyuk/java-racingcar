@@ -1,6 +1,4 @@
-package com.nextstep.teahyuk.racing
-
--game
+package com.nextstep.teahyuk.racing.vo;
 
 import java.util.Random;
 

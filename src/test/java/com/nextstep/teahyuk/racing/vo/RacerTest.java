@@ -1,4 +1,6 @@
-import com.nextstep.teahyuk.racing.Racer;
+package com.nextstep.teahyuk.racing.vo;
+
+import com.nextstep.teahyuk.racing.vo.Racer;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

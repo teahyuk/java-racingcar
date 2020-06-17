@@ -1,6 +1,8 @@
-import com.nextstep.teahyuk.racing.Distance;
-import com.nextstep.teahyuk.racing.Player;
-import com.nextstep.teahyuk.racing.Racer;
+package com.nextstep.teahyuk.racing.vo;
+
+import com.nextstep.teahyuk.racing.vo.Distance;
+import com.nextstep.teahyuk.racing.vo.Player;
+import com.nextstep.teahyuk.racing.vo.Racer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;

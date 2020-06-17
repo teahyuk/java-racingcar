@@ -18,7 +18,7 @@
 - Car
   - public new
   - default new(int canGoPercent)
-  - boolean move
+  - boolean movable()
 
 - Racer
   - String racerName

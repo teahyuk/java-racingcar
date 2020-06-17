@@ -1,3 +1,6 @@
+package com.nextstep.teahyuk.racing.vo;
+
+import com.nextstep.teahyuk.racing.vo.Car;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;

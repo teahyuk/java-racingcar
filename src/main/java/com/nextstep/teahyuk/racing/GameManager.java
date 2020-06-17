@@ -1,5 +1,8 @@
 package com.nextstep.teahyuk.racing;
 
+import com.nextstep.teahyuk.racing.vo.Distance;
+import com.nextstep.teahyuk.racing.vo.Player;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
