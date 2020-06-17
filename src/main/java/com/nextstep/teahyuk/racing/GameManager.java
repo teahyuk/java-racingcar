@@ -1,3 +1,5 @@
+package com.nextstep.teahyuk.racing;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;

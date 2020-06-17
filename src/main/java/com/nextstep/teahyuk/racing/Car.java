@@ -1,3 +1,7 @@
+package com.nextstep.teahyuk.racing
+
+-game
+
 import java.util.Random;
 
 public class Car {

@@ -1,3 +1,6 @@
+import com.nextstep.teahyuk.racing.Distance;
+import com.nextstep.teahyuk.racing.Racer;
+import com.nextstep.teahyuk.racing.RoundStatus;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;

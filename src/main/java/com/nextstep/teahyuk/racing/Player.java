@@ -1,3 +1,5 @@
+package com.nextstep.teahyuk.racing;
+
 public class Player {
     private final Racer racer;
     private final Car car;

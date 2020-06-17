@@ -1,12 +1,14 @@
+package com.nextstep.teahyuk.racing;
+
 /**
- * Racer class
+ * com.nextstep.teahyuk.racing.Racer class
  * @author teahyuk
  */
 public class Racer {
     private final String racerName;
 
     /**
-     * make Racer with racerName
+     * make com.nextstep.teahyuk.racing.Racer with racerName
      * @param racerName
      * @exception IllegalArgumentException racerName cannot has specific char(':')
      */
