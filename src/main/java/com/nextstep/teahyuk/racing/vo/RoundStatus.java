@@ -31,6 +31,14 @@ public class RoundStatus {
         return racerDistanceMap.get(racer).equals(expectDistance);
     }
 
+    public Distance getMaxDistance() {
+        return racerDistanceMap
+                .values()
+                .stream()
+                .max(Comparator.comparingInt(Distance::distance))
+                .orElse(Distance.of());
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(racerDistanceMap, Arrays.deepHashCode(racerDistanceMap.values().toArray()));

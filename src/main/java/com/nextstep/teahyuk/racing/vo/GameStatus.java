@@ -22,19 +22,11 @@ public class GameStatus {
     }
 
     public Collection<Racer> getWinners(RoundStatus lastStatus) {
-        Distance winnerDistance = getWinnerDistance(lastStatus);
+        Distance winnerDistance = lastStatus.getMaxDistance();
         return lastStatus.getRacers()
                 .stream()
                 .filter(racer->lastStatus.distance(racer).equals(winnerDistance))
                 .collect(Collectors.toList());
     }
 
-    private Distance getWinnerDistance(RoundStatus lastStatus) {
-        return lastStatus
-                .getRacers()
-                .stream()
-                .map(lastStatus::distance)
-                .max(Comparator.comparingInt(Distance::distance))
-                .orElse(Distance.of());
-    }
 }

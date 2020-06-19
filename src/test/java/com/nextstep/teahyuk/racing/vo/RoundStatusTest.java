@@ -46,4 +46,17 @@ class RoundStatusTest {
                 .isEqualTo(racer2Distance);
     }
 
+    @Test
+    void getMaxDistance(){
+        Map<Racer, Distance> racerMap = new HashMap<>();
+        Distance racer1Distance = Distance.of(1);
+        Distance racer2Distance = Distance.of(2);
+        racerMap.put(racer1, racer1Distance);
+        racerMap.put(racer2, racer2Distance);
+
+        RoundStatus roundStatus = new RoundStatus(racerMap);
+        assertThat(roundStatus.getMaxDistance())
+                .isEqualTo(racer2Distance);
+    }
+
 }
