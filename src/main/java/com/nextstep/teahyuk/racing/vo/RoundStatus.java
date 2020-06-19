@@ -1,10 +1,10 @@
 package com.nextstep.teahyuk.racing.vo;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class RoundStatus {
     private final Map<Racer, Distance> racerDistanceMap;
-    private final int s = 4;
 
     public RoundStatus(Map<Racer, Distance> racerDistanceHashMap) {
         this.racerDistanceMap = new HashMap<>(racerDistanceHashMap);
@@ -18,6 +18,25 @@ public class RoundStatus {
         return racerDistanceMap.get(racer);
     }
 
+    public Collection<Racer> getMaxDistanceRacers() {
+        return getSameDistanceRacers(getMaxDistance());
+    }
+
+    private Distance getMaxDistance() {
+        return racerDistanceMap
+                .values()
+                .stream()
+                .max(Comparator.comparingInt(Distance::distance))
+                .orElse(Distance.of());
+    }
+
+    private Collection<Racer> getSameDistanceRacers(Distance distance) {
+        return getRacers()
+                .stream()
+                .filter(racer -> this.distance(racer).equals(distance))
+                .collect(Collectors.toList());
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -29,14 +48,6 @@ public class RoundStatus {
 
     private boolean valueEquals(Racer racer, Distance expectDistance) {
         return racerDistanceMap.get(racer).equals(expectDistance);
-    }
-
-    public Distance getMaxDistance() {
-        return racerDistanceMap
-                .values()
-                .stream()
-                .max(Comparator.comparingInt(Distance::distance))
-                .orElse(Distance.of());
     }
 
     @Override

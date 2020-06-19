@@ -33,30 +33,32 @@ class RoundStatusTest {
 
     @Test
     void distance() {
-        Map<Racer, Distance> racerMap = new HashMap<>();
-        Distance racer1Distance = Distance.of(1);
-        Distance racer2Distance = Distance.of(2);
-        racerMap.put(racer1, racer1Distance);
-        racerMap.put(racer2, racer2Distance);
+        Map<Racer, Distance> racerMap = getRacerDistanceMap();
 
         RoundStatus roundStatus = new RoundStatus(racerMap);
         assertThat(roundStatus.distance(racer1))
-                .isEqualTo(racer1Distance);
+                .isEqualTo(racerMap.get(racer1));
         assertThat(roundStatus.distance(racer2))
-                .isEqualTo(racer2Distance);
+                .isEqualTo(racerMap.get(racer2));
     }
 
     @Test
-    void getMaxDistance(){
+    void getMaxDistanceRacers() {
+        Map<Racer, Distance> racerMap = getRacerDistanceMap();
+        Racer racer3 = new Racer("racer3");
+        racerMap.put(racer3, racerMap.get(racer2));
+
+        RoundStatus roundStatus = new RoundStatus(racerMap);
+        assertThat(roundStatus.getMaxDistanceRacers())
+                .containsExactlyInAnyOrder(racer2, racer3);
+    }
+
+    private Map<Racer, Distance> getRacerDistanceMap() {
         Map<Racer, Distance> racerMap = new HashMap<>();
         Distance racer1Distance = Distance.of(1);
         Distance racer2Distance = Distance.of(2);
         racerMap.put(racer1, racer1Distance);
         racerMap.put(racer2, racer2Distance);
-
-        RoundStatus roundStatus = new RoundStatus(racerMap);
-        assertThat(roundStatus.getMaxDistance())
-                .isEqualTo(racer2Distance);
+        return racerMap;
     }
-
 }
