@@ -1,7 +1,7 @@
 package com.nextstep.teahyuk.racing.vo;
 
-import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.ConcurrentMap;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -9,9 +9,9 @@ import java.util.stream.IntStream;
 public class Distance {
     private final int distance;
 
-    private final static Map<Integer, Distance> cacheMap = IntStream.range(0, 11)
+    private final static ConcurrentMap<Integer, Distance> cacheMap = IntStream.range(0, 11)
             .boxed()
-            .collect(Collectors.toMap(Function.identity(), Distance::new));
+            .collect(Collectors.toConcurrentMap(Function.identity(), Distance::new));
 
     private Distance(int distance) {
         this.distance = distance;
@@ -21,8 +21,9 @@ public class Distance {
         return cacheMap.get(0);
     }
 
-    public static Distance of(int distance){
-        return cacheMap.putIfAbsent(distance, new Distance(distance));
+    public static Distance of(int distance) {
+        cacheMap.putIfAbsent(distance, new Distance(distance));
+        return cacheMap.get(distance);
     }
 
     public int distance() {
