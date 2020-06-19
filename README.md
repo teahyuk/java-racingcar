@@ -17,7 +17,7 @@
 
 - Car
   - public new
-  - default new(int canGoPercent)
+  - new(int canGoPercent)
   - boolean movable()
 
 - Racer
@@ -35,11 +35,16 @@
   - Racer getRacer()
 
 - GameManager
-  - public new(int roundCount, List<Players> players)
-  - Collection<RoundStatus> play()
-  - Player winner(RoundStatus lastStatus)
+  - public new(int roundCount, List\<Players\> players)
+  - GameStatus play()
 
 - RoundStatus
-  - public new(Map<Racer, Distance> racerMap)
-  - public List<Racer> getRacers()
+  - public new(Map\<Racer, Distance\> racerMap)
+  - public List\<Racer\> getRacers()
   - public Distance getDistance(Racer racer)
+  - public List\<Racer\> getMaxDistanceRacers()
+  
+- GameStatus
+  - public new(RoundStatus... roundStatuses)
+  - public List\<RoundStatus\> getRoundStatuses()
+  - public List\<Racer\> getWinners()
