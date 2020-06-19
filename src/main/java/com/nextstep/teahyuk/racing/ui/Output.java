@@ -21,7 +21,7 @@ public class Output {
         roundStatuses.forEach(this::printSingleRound);
     }
 
-    private void printSingleRound(RoundStatus roundStatus){
+    private void printSingleRound(RoundStatus roundStatus) {
         roundStatus.getRacers()
                 .forEach(racer -> System.out.println(String.format(ROUND_RESULT_FORMAT, racer.name(), getDistanceString(roundStatus.distance(racer)))));
         System.out.println();

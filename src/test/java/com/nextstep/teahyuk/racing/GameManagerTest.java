@@ -32,7 +32,7 @@ class GameManagerTest {
     }
 
     @Test
-    void constructorPlayerError(){
+    void constructorPlayerError() {
         assertThatThrownBy(() -> new GameManager(1))
                 .isInstanceOf(IllegalArgumentException.class);
     }
@@ -41,12 +41,12 @@ class GameManagerTest {
     void play() {
         int roundCount = 4;
         GameManager gameManager = new GameManager(roundCount, Arrays.asList(player1, player2));
-        RoundStatus[] expectRoundStatuses = IntStream.range(0, roundCount+1)
+        RoundStatus[] expectRoundStatuses = IntStream.range(0, roundCount + 1)
                 .mapToObj(this::createExpectRoundStatus)
                 .toArray(RoundStatus[]::new);
 
         assertThat(gameManager.play())
-                .hasSize(roundCount+1)
+                .hasSize(roundCount + 1)
                 .containsExactly(expectRoundStatuses);
     }
 
@@ -57,7 +57,7 @@ class GameManagerTest {
 
     @Test
     void getWinners() {
-        GameManager gameManager = new GameManager(1,Arrays.asList(player1, player2, stopPlayer));
+        GameManager gameManager = new GameManager(1, Arrays.asList(player1, player2, stopPlayer));
 
         List<RoundStatus> roundStatuses = gameManager.play();
         RoundStatus lastState = roundStatuses.get(roundStatuses.size() - 1);

@@ -18,12 +18,12 @@ public class RacingGame {
                 .map(Player::new)
                 .collect(Collectors.toList());
         int count = input.getRoundCount();
-        
+
         GameManager gameManager = new GameManager(count, playerList);
 
         List<RoundStatus> roundStatuses = gameManager.play();
         output.printRound(roundStatuses);
-        output.printWinner(gameManager.getWinners(roundStatuses.get(roundStatuses.size()-1)));
+        output.printWinner(gameManager.getWinners(roundStatuses.get(roundStatuses.size() - 1)));
 
     }
 }

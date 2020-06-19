@@ -55,7 +55,7 @@ public class GameManager {
         Distance winnerDistance = getWinnerDistance(lastStatus);
         return lastStatus.getRacers()
                 .stream()
-                .filter(racer->lastStatus.distance(racer).equals(winnerDistance))
+                .filter(racer -> lastStatus.distance(racer).equals(winnerDistance))
                 .collect(Collectors.toList());
     }
 
