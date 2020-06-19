@@ -63,6 +63,6 @@ class GameManagerTest {
         RoundStatus lastState = roundStatuses.get(roundStatuses.size() - 1);
         assertThat(gameManager.getWinners(lastState))
                 .hasSize(2)
-                .containsExactly(player1.getRacer(), player2.getRacer());
+                .containsExactlyInAnyOrder(player1.getRacer(), player2.getRacer());
     }
 }
