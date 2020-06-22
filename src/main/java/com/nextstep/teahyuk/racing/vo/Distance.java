@@ -6,6 +6,12 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+/**
+ * <p>Means the distance from the starting point</p>
+ *
+ * @author teahyuk
+ * @since 1.0
+ */
 public class Distance {
     private final int distance;
 

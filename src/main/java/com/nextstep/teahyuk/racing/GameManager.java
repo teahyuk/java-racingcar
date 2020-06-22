@@ -9,8 +9,17 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Racing game business class
+ *
+ * <p>It handle racers, round count, play and return game result</p>
+ *
+ * @author teahyuk
+ * @since 1.0
+ */
 public class GameManager {
-    private static final String INVALID_FORMAT = "GameManager initialize error. roundCount must be positive and players must not empty, roundCount=%d, players.size=%d";
+    private static final String INVALID_FORMAT = "GameManager initialize error. roundCount must be positive and players must not empty, " +
+            "roundCount=%d, players.size=%d";
 
     private final List<Player> players;
     private final int roundCount;

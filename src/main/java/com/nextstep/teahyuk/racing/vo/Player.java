@@ -1,5 +1,13 @@
 package com.nextstep.teahyuk.racing.vo;
 
+/**
+ * Game participant
+ *
+ * <p>It has racer and car</p>
+ *
+ * @author teahyuk
+ * @since 1.0
+ */
 public class Player {
     private final Racer racer;
     private final Car car;

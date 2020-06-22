@@ -4,7 +4,6 @@ import com.nextstep.teahyuk.racing.ui.Input;
 import com.nextstep.teahyuk.racing.ui.Output;
 import com.nextstep.teahyuk.racing.vo.GameStatus;
 import com.nextstep.teahyuk.racing.vo.Player;
-import com.nextstep.teahyuk.racing.vo.RoundStatus;
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -2,6 +2,13 @@ package com.nextstep.teahyuk.racing.vo;
 
 import java.util.Random;
 
+/**
+ * Car service with movable
+ *
+ * <p>This Class create with movable percent and service canMove each call movable method</p>
+ * @author teahyuk
+ * @since 1.0
+ */
 public class Car {
     private static final int DEFAULT_GO_PERCENT = 40;
 

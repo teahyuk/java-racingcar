@@ -5,6 +5,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Game Result
+ *
+ * <p>it has every round status and get last winner</p>
+ *
+ * @author teahyuk
+ * @since 1.0
+ */
 public class GameStatus {
     private final List<RoundStatus> roundStatuses;
 

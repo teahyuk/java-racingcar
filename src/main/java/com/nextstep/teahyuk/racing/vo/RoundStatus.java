@@ -3,6 +3,14 @@ package com.nextstep.teahyuk.racing.vo;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * Round result
+ *
+ * <p>It means each player's distance map single round</p>
+ *
+ * @author teahyuk
+ * @since 1.0
+ */
 public class RoundStatus {
     private final Map<Racer, Distance> racerDistanceMap;
 
