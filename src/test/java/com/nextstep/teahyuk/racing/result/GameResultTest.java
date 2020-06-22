@@ -1,5 +1,7 @@
-package com.nextstep.teahyuk.racing.vo;
+package com.nextstep.teahyuk.racing.result;
 
+import com.nextstep.teahyuk.racing.vo.Distance;
+import com.nextstep.teahyuk.racing.vo.Racer;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
@@ -10,7 +12,7 @@ import java.util.stream.Stream;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-class GameStatusTest {
+class GameResultTest {
     private final Racer racer1 = new Racer("racer1");
     private final Racer racer2 = new Racer("racer2");
 
@@ -19,25 +21,25 @@ class GameStatusTest {
 
     @Test
     void getRoundStatuses() {
-        RoundStatus first = new RoundStatus(racerMap);
+        RoundResult first = new RoundResult(racerMap);
         racerMap.replace(racer2, Distance.of(2));
-        RoundStatus second = new RoundStatus(racerMap);
+        RoundResult second = new RoundResult(racerMap);
 
-        GameStatus gameStatus = new GameStatus(first, second);
+        GameResult gameResult = new GameResult(first, second);
 
-        assertThat(gameStatus.getRoundStatuses())
+        assertThat(gameResult.getRoundResults())
                 .containsExactly(first, second);
     }
 
     @Test
     void getWinner() {
-        RoundStatus first = new RoundStatus(racerMap);
+        RoundResult first = new RoundResult(racerMap);
         racerMap.replace(racer1, Distance.of(2));
-        RoundStatus second = new RoundStatus(racerMap);
+        RoundResult second = new RoundResult(racerMap);
 
-        GameStatus gameStatus = new GameStatus(first, second);
+        GameResult gameResult = new GameResult(first, second);
 
-        assertThat(gameStatus.getWinners())
+        assertThat(gameResult.getWinners())
                 .containsExactly(racer1);
     }
 

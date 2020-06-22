@@ -38,13 +38,13 @@
   - public new(int roundCount, List\<Players\> players)
   - GameStatus play()
 
-- RoundStatus
+- RoundResult
   - public new(Map\<Racer, Distance\> racerMap)
   - public List\<Racer\> getRacers()
   - public Distance getDistance(Racer racer)
   - public List\<Racer\> getMaxDistanceRacers()
   
-- GameStatus
-  - public new(RoundStatus... roundStatuses)
+- GameResult
+  - public new(RoundStatus... roundResults)
   - public List\<RoundStatus\> getRoundStatuses()
   - public List\<Racer\> getWinners()

@@ -3,7 +3,7 @@ package com.nextstep.teahyuk.racing.vo;
 /**
  * Game participant
  *
- * <p>It has racer and car</p>
+ * <p>It has Racer and Car</p>
  *
  * @author teahyuk
  * @since 1.0

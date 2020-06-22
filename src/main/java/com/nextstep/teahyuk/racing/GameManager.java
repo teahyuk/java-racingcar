@@ -1,8 +1,8 @@
 package com.nextstep.teahyuk.racing;
 
-import com.nextstep.teahyuk.racing.vo.GameStatus;
+import com.nextstep.teahyuk.racing.result.GameResult;
+import com.nextstep.teahyuk.racing.result.RoundResult;
 import com.nextstep.teahyuk.racing.vo.Player;
-import com.nextstep.teahyuk.racing.vo.RoundStatus;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,24 +40,24 @@ public class GameManager {
         this(roundCount, Arrays.asList(players));
     }
 
-    public GameStatus play() {
-        List<RoundStatus> roundStatuses = new ArrayList<>();
-        roundStatuses.add(getFirstRound());
+    public GameResult play() {
+        List<RoundResult> roundResults = new ArrayList<>();
+        roundResults.add(getFirstRound());
         for (int i = 0; i < roundCount; i++) {
-            roundStatuses.add(getNextRoundStatus(roundStatuses.get(i)));
+            roundResults.add(getNextRoundStatus(roundResults.get(i)));
         }
-        return new GameStatus(roundStatuses);
+        return new GameResult(roundResults);
     }
 
-    private RoundStatus getFirstRound() {
-        return new RoundStatus(players
+    private RoundResult getFirstRound() {
+        return new RoundResult(players
                 .stream()
                 .collect(Collectors.toMap(Player::getRacer, Player::nextRound)));
     }
 
-    private RoundStatus getNextRoundStatus(RoundStatus roundStatus) {
-        return new RoundStatus(players
+    private RoundResult getNextRoundStatus(RoundResult roundResult) {
+        return new RoundResult(players
                 .stream()
-                .collect(Collectors.toMap(Player::getRacer, player -> player.nextRound(roundStatus.distance(player.getRacer())))));
+                .collect(Collectors.toMap(Player::getRacer, player -> player.nextRound(roundResult.distance(player.getRacer())))));
     }
 }

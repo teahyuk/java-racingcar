@@ -2,7 +2,7 @@ package com.nextstep.teahyuk.racing;
 
 import com.nextstep.teahyuk.racing.ui.Input;
 import com.nextstep.teahyuk.racing.ui.Output;
-import com.nextstep.teahyuk.racing.vo.GameStatus;
+import com.nextstep.teahyuk.racing.result.GameResult;
 import com.nextstep.teahyuk.racing.vo.Player;
 
 import java.util.List;
@@ -21,8 +21,8 @@ public class RacingGame {
 
         GameManager gameManager = new GameManager(count, playerList);
 
-        GameStatus gameStatus = gameManager.play();
-        output.printRound(gameStatus.getRoundStatuses());
-        output.printWinner(gameStatus.getWinners());
+        GameResult gameResult = gameManager.play();
+        output.printRound(gameResult.getRoundResults());
+        output.printWinner(gameResult.getWinners());
     }
 }

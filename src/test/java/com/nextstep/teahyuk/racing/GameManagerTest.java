@@ -1,9 +1,9 @@
 package com.nextstep.teahyuk.racing;
 
+import com.nextstep.teahyuk.racing.result.RoundResult;
 import com.nextstep.teahyuk.racing.vo.Distance;
-import com.nextstep.teahyuk.racing.vo.GameStatus;
+import com.nextstep.teahyuk.racing.result.GameResult;
 import com.nextstep.teahyuk.racing.vo.Racer;
-import com.nextstep.teahyuk.racing.vo.RoundStatus;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -40,19 +40,19 @@ class GameManagerTest {
     void play() {
         int roundCount = 1;
         GameManager gameManager = new GameManager(roundCount, Arrays.asList(player1, player2, stopPlayer));
-        RoundStatus firstRound = createExpectRoundStatus(0, 0, 0);
-        RoundStatus secondRound = createExpectRoundStatus(1, 1, 0);
-        GameStatus expectedGameStatus = new GameStatus(firstRound, secondRound);
+        RoundResult firstRound = createExpectRoundStatus(0, 0, 0);
+        RoundResult secondRound = createExpectRoundStatus(1, 1, 0);
+        GameResult expectedGameResult = new GameResult(firstRound, secondRound);
 
         assertThat(gameManager.play())
-                .isEqualTo(expectedGameStatus);
+                .isEqualTo(expectedGameResult);
     }
 
-    private RoundStatus createExpectRoundStatus(int racer1Distance, int racer2Distance, int racer3Distance) {
+    private RoundResult createExpectRoundStatus(int racer1Distance, int racer2Distance, int racer3Distance) {
         Map<Racer, Distance> racerMap = new HashMap<>();
         racerMap.put(player1.getRacer(), Distance.of(racer1Distance));
         racerMap.put(player2.getRacer(), Distance.of(racer2Distance));
         racerMap.put(stopPlayer.getRacer(), Distance.of(racer3Distance));
-        return new RoundStatus(racerMap);
+        return new RoundResult(racerMap);
     }
 }

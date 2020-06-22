@@ -1,4 +1,7 @@
-package com.nextstep.teahyuk.racing.vo;
+package com.nextstep.teahyuk.racing.result;
+
+import com.nextstep.teahyuk.racing.vo.Distance;
+import com.nextstep.teahyuk.racing.vo.Racer;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -11,10 +14,10 @@ import java.util.stream.Collectors;
  * @author teahyuk
  * @since 1.0
  */
-public class RoundStatus {
+public class RoundResult {
     private final Map<Racer, Distance> racerDistanceMap;
 
-    public RoundStatus(Map<Racer, Distance> racerDistanceHashMap) {
+    public RoundResult(Map<Racer, Distance> racerDistanceHashMap) {
         this.racerDistanceMap = new HashMap<>(racerDistanceHashMap);
     }
 
@@ -26,7 +29,7 @@ public class RoundStatus {
         return racerDistanceMap.get(racer);
     }
 
-    public Collection<Racer> getMaxDistanceRacers() {
+    Collection<Racer> getMaxDistanceRacers() {
         return getSameDistanceRacers(getMaxDistance());
     }
 
@@ -49,7 +52,7 @@ public class RoundStatus {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        RoundStatus that = (RoundStatus) o;
+        RoundResult that = (RoundResult) o;
         return Objects.equals(racerDistanceMap, that.racerDistanceMap) &&
                 racerDistanceMap.keySet().stream().allMatch(racer -> that.valueEquals(racer, racerDistanceMap.get(racer)));
     }

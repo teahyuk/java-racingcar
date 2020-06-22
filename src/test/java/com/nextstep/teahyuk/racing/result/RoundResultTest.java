@@ -1,5 +1,7 @@
-package com.nextstep.teahyuk.racing.vo;
+package com.nextstep.teahyuk.racing.result;
 
+import com.nextstep.teahyuk.racing.vo.Distance;
+import com.nextstep.teahyuk.racing.vo.Racer;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -11,14 +13,14 @@ import java.util.stream.Stream;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 
-class RoundStatusTest {
+class RoundResultTest {
 
     private static final Racer racer1 = new Racer("racer1");
     private static final Racer racer2 = new Racer("racer2");
 
     @Test
     void roundResult() {
-        assertThatCode(() -> new RoundStatus(new HashMap<>()))
+        assertThatCode(() -> new RoundResult(new HashMap<>()))
                 .doesNotThrowAnyException();
     }
 
@@ -26,8 +28,8 @@ class RoundStatusTest {
     void getRacers() {
         Map<Racer, Distance> racerMap = Stream.of(racer1, racer2)
                 .collect(Collectors.toMap(Function.identity(), racer -> Distance.of()));
-        RoundStatus roundStatus = new RoundStatus(racerMap);
-        assertThat(roundStatus.getRacers())
+        RoundResult roundResult = new RoundResult(racerMap);
+        assertThat(roundResult.getRacers())
                 .containsAll(racerMap.keySet());
     }
 
@@ -35,10 +37,10 @@ class RoundStatusTest {
     void distance() {
         Map<Racer, Distance> racerMap = getRacerDistanceMap();
 
-        RoundStatus roundStatus = new RoundStatus(racerMap);
-        assertThat(roundStatus.distance(racer1))
+        RoundResult roundResult = new RoundResult(racerMap);
+        assertThat(roundResult.distance(racer1))
                 .isEqualTo(racerMap.get(racer1));
-        assertThat(roundStatus.distance(racer2))
+        assertThat(roundResult.distance(racer2))
                 .isEqualTo(racerMap.get(racer2));
     }
 
@@ -48,8 +50,8 @@ class RoundStatusTest {
         Racer racer3 = new Racer("racer3");
         racerMap.put(racer3, racerMap.get(racer2));
 
-        RoundStatus roundStatus = new RoundStatus(racerMap);
-        assertThat(roundStatus.getMaxDistanceRacers())
+        RoundResult roundResult = new RoundResult(racerMap);
+        assertThat(roundResult.getMaxDistanceRacers())
                 .containsExactlyInAnyOrder(racer2, racer3);
     }
 
