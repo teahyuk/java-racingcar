@@ -19,33 +19,33 @@ class GameManagerTest {
 
     @Test
     void constructor() {
-        assertThatCode(() -> new GameManager(1, player1, player2))
+        assertThatCode(() -> new GameManager(player1, player2))
                 .doesNotThrowAnyException();
     }
 
-    @ParameterizedTest
-    @ValueSource(ints = {-1, 0})
-    void constructorCountError(int roundCount) {
-        assertThatThrownBy(() -> new GameManager(roundCount, player1))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
     @Test
-    void constructorPlayerError() {
-        assertThatThrownBy(() -> new GameManager(1))
+    void constructorError() {
+        assertThatThrownBy(GameManager::new)
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void play() {
         int roundCount = 1;
-        GameManager gameManager = new GameManager(roundCount, Arrays.asList(player1, player2, stopPlayer));
+        GameManager gameManager = new GameManager(player1, player2, stopPlayer);
         RoundResult firstRound = createExpectRoundStatus(0, 0, 0);
         RoundResult secondRound = createExpectRoundStatus(1, 1, 0);
         GameResult expectedGameResult = new GameResult(firstRound, secondRound);
 
-        assertThat(gameManager.play())
+        assertThat(gameManager.play(roundCount))
                 .isEqualTo(expectedGameResult);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {-1, 0})
+    void playError(int roundCount) {
+        assertThatThrownBy(() -> new GameManager(player1).play(roundCount))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     private RoundResult createExpectRoundStatus(int racer1Distance, int racer2Distance, int racer3Distance) {

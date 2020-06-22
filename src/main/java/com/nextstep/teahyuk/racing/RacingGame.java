@@ -17,11 +17,10 @@ public class RacingGame {
                 .stream()
                 .map(Player::new)
                 .collect(Collectors.toList());
-        int count = input.getRoundCount();
+        GameManager gameManager = new GameManager(playerList);
 
-        GameManager gameManager = new GameManager(count, playerList);
+        GameResult gameResult = gameManager.play(input.getRoundCount());
 
-        GameResult gameResult = gameManager.play();
         output.printRound(gameResult.getRoundResults());
         output.printWinner(gameResult.getWinners());
     }
