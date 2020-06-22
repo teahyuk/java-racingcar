@@ -2,6 +2,7 @@ package com.nextstep.teahyuk.racing;
 
 import com.nextstep.teahyuk.racing.result.GameResult;
 import com.nextstep.teahyuk.racing.result.RoundResult;
+import com.nextstep.teahyuk.racing.vo.Distance;
 import com.nextstep.teahyuk.racing.vo.Player;
 
 import java.util.ArrayList;
@@ -57,7 +58,7 @@ public class GameManager {
     private RoundResult getFirstRound() {
         return new RoundResult(players
                 .stream()
-                .collect(Collectors.toMap(Player::getRacer, Player::nextRound)));
+                .collect(Collectors.toMap(Player::getRacer, player -> Distance.of())));
     }
 
     private RoundResult getNextRoundStatus(RoundResult roundResult) {
